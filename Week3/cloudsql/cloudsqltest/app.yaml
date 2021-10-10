@@ -1,0 +1,7 @@
+runtime: python39
+
+env_variables:
+  CLOUD_SQL_USERNAME: xin
+  CLOUD_SQL_PASSWORD: 1234
+  CLOUD_SQL_DATABASE_NAME: musiclist
+  CLOUD_SQL_CONNECTION_NAME: ad-2021-01:europe-west2:advanceddevelopment
