@@ -1,0 +1,94 @@
+<!doctype html>
+<!--
+ Copyright 2021 Google LLC
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+      http://www.apache.org/licenses/LICENSE-2.0
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+-->
+
+<html>
+<head>
+  <title>Datastore and Firebase Auth Example</title>
+
+  <!-- See https://github.com/firebase/firebaseui-web. -->
+  <!-- [START gae_python38_auth_init_firebase] -->
+  <!-- [START gae_python3_auth_init_firebase] -->
+  <!-- *******************************************************************************************
+       * TODO(DEVELOPER): Paste the initialization snippet from:
+       * http://console.firebase.google.com > Overview > Add Firebase to your web app.
+       ***************************************************************************************** -->
+  <!-- [END gae_python3_auth_init_firebase] -->
+  <!-- [END gae_python38_auth_init_firebase] -->
+ 
+  <!-- [START gae_python38_auth_include_firebaseui] -->
+  <!-- [START gae_python3_auth_include_firebaseui] -->
+  <script src="https://www.gstatic.com/firebasejs/ui/4.5.0/firebase-ui-auth.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.5.0/firebase-ui-auth.css">
+  <!-- [END gae_python3_auth_include_firebaseui] -->
+  <!-- [END gae_python38_auth_include_firebaseui] -->
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+  <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+<body>
+
+<h1>Datastore and Firebase Auth Example</h1>
+
+<!-- [START gae_python38_auth_firebase_html] -->
+<!-- [START gae_python3_auth_firebase_html] -->
+<div id="firebaseui-auth-container"></div>
+
+<button id="sign-out" hidden=true>Sign Out</button>
+
+<div id="login-info" hidden=true>
+  <h2>Login info:</h2>
+  {% if user_data %}
+    <dl>
+      <dt>Name</dt><dd>{{ user_data['name'] }}</dd>
+      <dt>Email</dt><dd>{{ user_data['email'] }}</dd>
+      <dt>Last 10 visits</dt><dd>
+	{% for time in times %}
+          <p>{{ time['timestamp'] }}</p>
+        {% endfor %} </dd>
+    </dl>
+  {% elif error_message %}
+    <p>Error: {{ error_message }}</p>
+  {% endif %}
+</div>
+<!-- [END gae_python3_auth_firebase_html] -->
+<!-- [END gae_python38_auth_firebase_html] -->
+</body>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-app.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-auth.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+ var firebaseConfig = {
+  apiKey: "AIzaSyD9pmtjw1JHYrgrdvxhlRbgoYdBz6AVzUk",
+    authDomain: "ad-labs-328821.firebaseapp.com",
+    projectId: "ad-labs-328821",
+    storageBucket: "ad-labs-328821.appspot.com",
+    messagingSenderId: "205485707924",
+    appId: "1:205485707924:web:e0a3decc659e03efd0da81",
+    measurementId: "G-HZQ15377ZD"
+};
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+
+
+</html>

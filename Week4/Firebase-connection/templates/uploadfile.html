@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+  <title>Firestore Cloud Storage Example</title>
+  <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-app.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-auth.js"></script>
+   
+  <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-storage.js"></script>
+
+
+  <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  
+  
+<link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.5.0/firebase-ui-auth.css">
+</head>
+<body>
+  <h1>Firebase Cloud Storage Example</h1>
+
+  <div id="firebaseui-auth-container"></div>
+  
+  <button id="sign-out" hidden=true>Sign Out</button>
+  
+  <div id="login-info">
+    <h2>Login info:</h2>
+    {% if user_data %}    <dl>
+        <dt>Name</dt><dd>{{ user_data['name'] }}</dd>
+        <dt>Email</dt><dd>{{ user_data['email'] }}</dd>
+        
+        
+      </dl>
+    {% elif error_message %}    <p>Error: {{ error_message }}</p>
+    {% endif %}</div>
+
+    <div class="mainDiv" align="right">
+      <h1 align="left">Firebase File Upload</h1>
+      <progress id="uploader" value="0" max="100">0%</progress>
+      <input type="file" id="fileButton" value="upload"/>
+    </div>
+
+   <!-- The core Firebase JS SDK is always required and must be listed first -->
+   
+
+   <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-storage.js"></script>       
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+  apiKey: "AIzaSyD9pmtjw1JHYrgrdvxhlRbgoYdBz6AVzUk",
+    authDomain: "ad-labs-328821.firebaseapp.com",
+    projectId: "ad-labs-328821",
+    storageBucket: "ad-labs-328821.appspot.com",
+    messagingSenderId: "205485707924",
+    appId: "1:205485707924:web:e0a3decc659e03efd0da81",
+    measurementId: "G-HZQ15377ZD"
+};
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+
+</script>
+
+<script src="{{ url_for('static', filename='upload.js') }}"></script>
+
+</body>
+</html>
