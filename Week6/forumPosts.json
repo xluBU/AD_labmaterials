@@ -1,0 +1,23 @@
+[
+	{
+		"title" : "Man walks on the moon",
+		"author" : "Faker",
+		"dateCreated" : 2019,
+		"thumbnail" : "some url",
+		"content" : "A man was spotted through a telescope walking on the moon, a man reports. The footage that was retreived from our sources has been passed to CIA that concluded it was Faker."
+	},
+	{
+		"title" : "Student fails to complete assignment",
+		"author" : "Me",
+		"dateCreated" : 2020,
+		"thumbnail" : "some url",
+		"content" : "It is what it is."
+	},
+	{
+		"title" : "Random post",
+		"author" : "Random author",
+		"dateCreated" : 2015,
+		"thumbnail" : "some url",
+		"content" : "RAndom post with random text random random, random.. random... rand.. r.. rr..."
+	}
+]
