@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<title>Forum Page</title>
+
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-storage.js"></script>
+
+	<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+	<script src="{{ url_for('static', filename='forumpost.js') }}"></script>
+</head>
+<body>
+	<div class="jumbotron text-center">
+		<h1>Forum Page </h1>
+		<p>
+            <div id="login-info">
+                <h2>Login info:</h2>
+                {% if user_data %}    <dl>
+                    <dt>Name</dt><dd>{{ user_data['name'] }}</dd>
+                    <dt>Email</dt><dd>{{ user_data['email'] }}</dd>
+                    
+                    
+                  </dl>
+                {% elif error_message %}    <p>Error: {{ error_message }}</p>
+                {% endif %}</div>
+
+        </p>
+	</div>
+
+
+
+	<div class="container">
+		{% for d in data %}
+			<div class="row">
+				<div class="col align-self-center">
+					<h2>{{ d['title'] }}</h2>
+					<h3>{{ d['author'] }}</h3>
+                    <p>{{ d['dateCreated'] }}</p>       
+                    <p>{{ d['content'] }}</p>
+
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+
+
+	<form class="form-inline">
+		<div class="form-group">
+			<label class="sr-only" for="titleInput">Post Title</label>
+			<input type="text" name="title" class="form-control" id="title" placeholder="Title">
+		</div>
+		</br>
+		<div class="form-group">
+			<label class="sr-only" for="contentInput">Post Content</label>
+			<textarea id="content" name="content" class="form-control" rows="10" cols="70" placeholder="Post Content"></textarea>
+		</div>
+		</br>
+		<button type="submit" class="btn btn-default">Submit</button>
+	</form>
+	</br>
+	<div id="successAlert" class="alert alert-success" role="alert" style="display:none"></div>
+	<div id="errorAlert" class="alert alert-danger" role="alert" style="display:none"></div>
+</body>
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-app.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-auth.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyD9pmtjw1JHYrgrdvxhlRbgoYdBz6AVzUk",
+    authDomain: "ad-labs-328821.firebaseapp.com",
+    projectId: "ad-labs-328821",
+    storageBucket: "ad-labs-328821.appspot.com",
+    messagingSenderId: "205485707924",
+    appId: "1:205485707924:web:e0a3decc659e03efd0da81",
+    measurementId: "G-HZQ15377ZD"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+
+</html>
