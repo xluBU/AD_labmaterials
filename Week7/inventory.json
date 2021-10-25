@@ -1,0 +1,17 @@
+[{
+  "item": "Safety Hat",
+  "qty": 5,
+  "tags": "safety",
+  "size": {
+      "headsize": "medium"
+  }
+} , {
+  "item": "Fire Blanket",
+  "qty": 10,
+  "tags": ["fire resistant material"],
+  "size": {
+      "h": 48,
+      "w": 27,
+      "uom": "cm"
+  }
+}]
