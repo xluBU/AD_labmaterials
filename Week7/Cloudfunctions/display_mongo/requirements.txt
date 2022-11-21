@@ -2,5 +2,5 @@
 # package>=version
 pymongo==3.9.0 
 dnspython
-functions-framework==2.0.0
+functions-framework==3.2.0
 requests
